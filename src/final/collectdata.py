@@ -8,17 +8,21 @@ import os
 import pandas as pd
 from gamelogicF import GameLogic
 
+GAMES_TO_PLAY = 50
+GRID_LENGTH = 6
+ANT_VIEW = 2
+
 def main():
     """
     Main function to simulate games and collect training data.
     """
-    games_to_play = 50
+    games_to_play = GAMES_TO_PLAY
     games_played = 0
     step = 1
     train_data = []
     while games_played < games_to_play:
-        grid_length = 3 
-        ant_view = 2
+        grid_length = GRID_LENGTH 
+        ant_view = ANT_VIEW
         game = GameLogic(grid_length,ant_view)
         solution = game.solution()
         print(solution)

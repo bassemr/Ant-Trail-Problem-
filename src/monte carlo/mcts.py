@@ -9,6 +9,8 @@ from gamegrphic import GameGrphic
 import pickle
 import pygame
 import matplotlib.pyplot as plt
+import pandas as pd
+import os
 
 
 class MCTSMeta:
@@ -265,14 +267,15 @@ def create_one_game():
         gamegraph.draw()
     print(f'{state.score=}')
 
-def create_multiple_games(games_to_play):
+def create_multiple_games(games_to_play, N, m, create_data):
     """
     Runs multiple games and records the scores.
     """
     games_to_play = games_to_play
     scores = []
+    train_data = []
     for i in range(games_to_play):
-        state = GameLogic(8,1)
+        state = GameLogic(N,m)
         mcts = MCTS(state)
         # print(state.grid)
         running = True
@@ -284,12 +287,31 @@ def create_multiple_games(games_to_play):
             num_rollouts, run_time = mcts.statistics()
             # print("Statistics: ", num_rollouts, "rollouts in", run_time, "seconds")
             move = mcts.best_move()
+            neighbor = state.get_neighborhood()
+            neighbor.append(move)
+            train_data.append(neighbor)
             mcts.move(move)
             # print("MCTS chose move: ", move)
             # print(moves)
             # move = np.random.choice(moves)
             state.move(move)
         scores.append(state.score)
+    if(create_data):
+        num_features = (2 *m+ 1) **2 
+        columns = [f'f{i+1}' for i in range(num_features)]  
+        columns.append('target')
+        df = pd.DataFrame(train_data, columns=columns)
+        print(df)
+        # Save to a CSV file
+        # Print working directory and list files
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        csv_path = os.path.join(script_dir, 'MCTSdata' + str(N) +'_' + str(m) +'.csv')
+        df.to_csv(csv_path, index=False)
+
+
+
+
+
     return scores
 
 
@@ -331,12 +353,15 @@ def barchart(scores):
 
  
 
-def main(once=False, games_to_play=100):
+def main(once=True, games_to_play=20):
+    N = 8
+    m = 5
+    create_data = True
     """
     Main entry point for running the program, either a single game or multiple games.
     """
     if once:
-        scores = create_multiple_games(games_to_play)
+        scores = create_multiple_games(games_to_play, N, m, create_data)
         barplot(scores)
         barchart(scores)
 

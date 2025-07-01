@@ -337,7 +337,7 @@ class FrozenLakeDQL():
                 print() # Print a newline every 4 states
 
 if __name__ == '__main__':
-    game = GameLogic(4,1)
+    game = GameLogic(3,1)
     frozen_lake = FrozenLakeDQL(game)
     frozen_lake.train(1000)
     frozen_lake.test()

@@ -649,13 +649,13 @@ class AntgameAI:
 
 
         if count_ones :
-            print('Ones')
+            # print('Ones')
             backtrack(x, y, self.moves_left, 0, [])
         else:
             explore_directions(x, y, self.moves_left, [], max_discovered_cells)
             # bestes.sort(key=lambda move: (-move[1]), reverse=False)
             # print(bestes)
-        print(best_path)
+        # print(best_path)
         DIRECTIONS = {
             'up': (-1, 0),
             'down': (1, 0),

@@ -208,7 +208,7 @@ class AntgameAI:
             self.out_board = True
         if self.moves_left == 0 or self.score == self.N:
             self.game_over = True
-        print(self.grid)
+        # print(self.grid)
         return reward
         
     def walking_ant(self) -> dict:
@@ -570,7 +570,7 @@ class AntgameAI:
                 self.draw_direction(self.direction)
                 self.prev_dir= self.direction
                 reward = self.move_ant(self.direction)
-                print(reward)
+                # print(reward)
                 if reward == 1:
                     self.play_music(REWARD)
                 elif reward < 0:
