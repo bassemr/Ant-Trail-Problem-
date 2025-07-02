@@ -8,8 +8,8 @@ import os
 import pandas as pd
 from gamelogicF import GameLogic
 
-GAMES_TO_PLAY = 50
-GRID_LENGTH = 6
+GAMES_TO_PLAY = 10
+GRID_LENGTH = 5
 ANT_VIEW = 2
 
 def main():
@@ -56,7 +56,9 @@ def main():
     # Save to a CSV file
     # Print working directory and list files
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(script_dir, 'data' + str(game.N) +'_' + str(game.m) +'.csv')
+    data_dir = os.path.join(script_dir, 'data')
+    csv_path = os.path.join(data_dir, 'data_N' + str(game.N) +'_M' + str(game.m) + '_g'+ str(games_to_play) + '.csv')
+
     df.to_csv(csv_path, index=False)
 
 

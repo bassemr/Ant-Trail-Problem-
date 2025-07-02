@@ -82,13 +82,15 @@ def tree_agent(data, grid_length, ant_view):
     return scores
 
 def main():
-    grid_length = 3
+    games_to_play = 10
+    grid_length = 5
     ant_view = 2
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(script_dir, 'data' + str(grid_length) +'_' + str(ant_view) +'.csv')
+    data_dir = os.path.join(script_dir, 'data')
+    csv_path = os.path.join(data_dir, 'data_N' + str(grid_length) +'_M' + str(ant_view) + '_g'+ str(games_to_play) + '.csv')
     data = pd.read_csv(csv_path)
     scores = neural_network_agent(data, grid_length, ant_view)
-    #scores = tree_agent(data, grid_length, ant_view)
+    # scores = tree_agent(data, grid_length, ant_view)
 
     barplot(scores, "Tree")
     barchart(scores, "Tree")

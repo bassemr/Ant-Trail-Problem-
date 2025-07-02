@@ -54,7 +54,7 @@ class AgentT:
  
         y = data['target']
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=41)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2) #, random_state=41
 
         dtc = DecisionTreeClassifier(criterion='entropy')
       
@@ -62,12 +62,12 @@ class AgentT:
         y_pred = dtc.predict(X_test)
         joblib.dump(dtc, 'decision_tree_model.joblib')
         print(confusion_matrix(y_test, y_pred))
-        print(accuracy_score(y_test, y_pred))
-        # print(classification_report(y_test, y_pred))
-        cm = confusion_matrix(y_pred, y_test)
-        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y_test))
-        disp.plot(cmap=plt.cm.Blues)
-        plt.title("Confusion Matrix")
+        # print(accuracy_score(y_test, y_pred))
+        print(classification_report(y_test, y_pred))
+        # cm = confusion_matrix(y_pred, y_test)
+        # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y_test))
+        # disp.plot(cmap=plt.cm.Blues)
+        # plt.title("Confusion Matrix")
         plt.show()
     def test(self, observation):
         """
