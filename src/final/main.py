@@ -5,6 +5,7 @@ from agentN import AgentN
 import matplotlib.pyplot as plt
 import numpy as np
 from agentT import AgentT
+from agentG import AgentG
 # Get the path of the current script's directory
 
 def barplot(scores, model_name):
@@ -81,16 +82,40 @@ def tree_agent(data, grid_length, ant_view):
         # print(f'Score {game.score}')
     return scores
 
+def genetic_agent(data, grid_length, ant_view):
+    agentg = AgentG(data)
+    agentg.train()
+
+    
+    games_to_play = 10
+    scores = []
+    for i in range(games_to_play):
+
+        game = GameLogic(grid_length,ant_view)
+        done = False
+        while not done:
+            neighbor = game.get_neighborhood()
+            move = agentg.test(neighbor)
+            game.move(move)
+            done = game.game_over()
+            # print(f'move {move_decoded} reward = {game.reward}')
+        scores.append(game.get_outcome())
+        # print(f'Score {game.score}')
+    return scores
+
 def main():
     games_to_play = 10
-    grid_length = 10
-    ant_view = 4
+    grid_length = 3
+    ant_view = 1
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(script_dir, 'data')
     csv_path = os.path.join(data_dir, 'data_N' + str(grid_length) +'_M' + str(ant_view) + '_g'+ str(games_to_play) + '.csv')
     data = pd.read_csv(csv_path)
     # scores = neural_network_agent(data, grid_length, ant_view)
-    scores = tree_agent(data, grid_length, ant_view)
+    # scores = tree_agent(data, grid_length, ant_view)
+    scores = genetic_agent(data, grid_length, ant_view)
+ 
+
 
     barplot(scores, "Tree")
     barchart(scores, "Tree")

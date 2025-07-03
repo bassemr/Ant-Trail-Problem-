@@ -1,1 +1,1 @@
-best_fitness
+neighbor

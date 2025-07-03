@@ -61,14 +61,14 @@ class AgentT:
         dtc.fit(X_train, y_train)
         y_pred = dtc.predict(X_test)
         joblib.dump(dtc, 'decision_tree_model.joblib')
-        print(confusion_matrix(y_test, y_pred))
+        # print(confusion_matrix(y_test, y_pred))
         # print(accuracy_score(y_test, y_pred))
         print(classification_report(y_test, y_pred))
         # cm = confusion_matrix(y_pred, y_test)
         # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y_test))
         # disp.plot(cmap=plt.cm.Blues)
         # plt.title("Confusion Matrix")
-        plt.show()
+        # plt.show()
     def test(self, observation):
         """
         Tests the model with a new observation and predicts the direction.
