@@ -11,12 +11,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-POPULATION_SIZE = 200
+POPULATION_SIZE = 100
 # GENOME_LENGTH = 12
 CROSSOVER_RATE = 0.7
 MUTATION_RATE = 0.01
 GENERATION =  100
-TOURNAMENT_SIZE = 10
+TOURNAMENT_SIZE = 5
 
 
 
@@ -126,11 +126,11 @@ def mutate(genome):
     return genome
 
 
-def genetic_algorthm():
+def genetic_algorthm(N, m):
     """Main function to run the genetic algorithm for evolving solutions."""
 
-    grid_length = 4
-    ant_view = 1
+    grid_length = N
+    ant_view = m
     game = GameLogic(grid_length, ant_view)
     population = init_population(POPULATION_SIZE, game.N*2)
     scores = []
@@ -186,7 +186,7 @@ def plot(scores):
     plt.show()
 
 def main():
-    scores = genetic_algorthm()
+    scores = genetic_algorthm(N=10, m=2)
     plot(scores)
 
 

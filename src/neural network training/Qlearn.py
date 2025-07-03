@@ -12,7 +12,7 @@ exploration_rate = 1
 max_exploration_rate = 1
 min_exploration_rate = 0.1
 exploration_decay_rate = 0.0001
-game = GameLogic(4,1)
+game = GameLogic(10,1)
 
 print(game.visited)
 print(f'Position {game.ant_position}')
@@ -61,7 +61,6 @@ for episode in range(num_episodes):
         score = game.score
         moves_left = game.moves_left
         reward = game.get_reward()
-        print
         # if new_state in states:
         #     reward -= 10
         #     temp = True

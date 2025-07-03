@@ -301,11 +301,13 @@ def create_multiple_games(games_to_play, N, m, create_data):
         columns = [f'f{i+1}' for i in range(num_features)]  
         columns.append('target')
         df = pd.DataFrame(train_data, columns=columns)
-        print(df)
+        # print(df)
         # Save to a CSV file
         # Print working directory and list files
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.join(script_dir, 'MCTSdata' + str(N) +'_' + str(m) +'.csv')
+        data_dir = os.path.join(script_dir, '..', 'final', 'data')
+        data_dir = os.path.abspath(data_dir)  # Normalize the path
+        csv_path = os.path.join(data_dir, 'data_N' + str(N) +'_M' + str(m) + '_g'+ str(games_to_play) + '.csv')
         df.to_csv(csv_path, index=False)
 
 
@@ -353,10 +355,10 @@ def barchart(scores):
 
  
 
-def main(once=True, games_to_play=20):
-    N = 8
-    m = 5
-    create_data = True
+def main(once=True, games_to_play=10):
+    N = 10
+    m = 2
+    create_data = False
     """
     Main entry point for running the program, either a single game or multiple games.
     """
