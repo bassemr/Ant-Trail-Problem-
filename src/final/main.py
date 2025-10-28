@@ -111,9 +111,9 @@ def main():
     data_dir = os.path.join(script_dir, 'data')
     csv_path = os.path.join(data_dir, 'data_N' + str(grid_length) +'_M' + str(ant_view) + '_g'+ str(games_to_play) + '.csv')
     data = pd.read_csv(csv_path)
-    # scores = neural_network_agent(data, grid_length, ant_view)
+    scores = neural_network_agent(data, grid_length, ant_view)
     # scores = tree_agent(data, grid_length, ant_view)
-    scores = genetic_agent(data, grid_length, ant_view)
+    # scores = genetic_agent(data, grid_length, ant_view)
  
 
 

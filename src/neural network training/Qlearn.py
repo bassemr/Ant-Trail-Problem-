@@ -12,7 +12,7 @@ exploration_rate = 1
 max_exploration_rate = 1
 min_exploration_rate = 0.1
 exploration_decay_rate = 0.0001
-game = GameLogic(10,1)
+game = GameLogic(6,1)
 
 print(game.visited)
 print(f'Position {game.ant_position}')

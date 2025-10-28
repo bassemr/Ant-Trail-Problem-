@@ -63,8 +63,9 @@ HERE YOU SHOULD TO INSERT THE IAMGES AND AUDIO PATH
 
 """
 #IMAGES AND AUDIO PATH
-PATH_IMAGES = 'E:\\ant_game\\images\\'
-PATH_AUDIO = 'E:\\ant_game\\audio\\'
+PATH_IMAGES = 'E:\\ant_game_356943\\images\\'
+PATH_AUDIO = 'E:\\ant_game_356943\\audio\\'
+
 #IMAGES
 ANT_WALKING = pygame.image.load(PATH_IMAGES + 'walk.png')
 ANT = pygame.image.load(PATH_IMAGES + 'ant_game.png')

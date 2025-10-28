@@ -36,11 +36,13 @@ class AgentN:
         - output: Number of output classes (default is 4 for directions).
         """
         self.data = data
+        print(data)
         self.input_size = input
         self.hidden_layer_size =  h1
         self.output_size = output
         self.model = Model(self.input_size, self.hidden_layer_size, self.output_size)
         self.data = data.drop_duplicates()
+
 
 
 

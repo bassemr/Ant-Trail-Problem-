@@ -186,7 +186,7 @@ def plot(scores):
     plt.show()
 
 def main():
-    scores = genetic_algorthm(N=10, m=2)
+    scores = genetic_algorthm(N=6, m=2)
     plot(scores)
 
 

@@ -9,8 +9,8 @@ import pandas as pd
 from gamelogicF import GameLogic
 
 GAMES_TO_PLAY = 10
-GRID_LENGTH = 5
-ANT_VIEW = 2
+GRID_LENGTH = 3
+ANT_VIEW = 1
 
 def main():
     """

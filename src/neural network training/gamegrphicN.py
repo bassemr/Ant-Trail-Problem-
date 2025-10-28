@@ -14,13 +14,13 @@ W = 600
 H = 600 
 FPS = 1
 #IMAGES
-ANT_WALKING = pygame.image.load('E:\\ant_game\\images\\walk.png')
-ANT = pygame.image.load('E:\\ant_game\\images\\ant_game.png')
-ANT_SUGAR = pygame.image.load('E:\\ant_game\\images\\ant_sugar1.png')
-SUGAR = pygame.image.load('E:\\ant_game\\images\\sugar.png')
-BROKEN = pygame.image.load('E:\\ant_game\\images\\street_broken.jpg')
-STREET = pygame.image.load('E:\\ant_game\\images\\street.jpg')
-ANT_OUT_BOARD = pygame.image.load('E:\\ant_game\\images\\ant_dead.jpeg')
+ANT_WALKING = pygame.image.load('E:\\ant_game_356943\\images\\walk.png')
+ANT = pygame.image.load('E:\\ant_game_356943\\images\\ant_game.png')
+ANT_SUGAR = pygame.image.load('E:\\ant_game_356943\\images\\ant_sugar1.png')
+SUGAR = pygame.image.load('E:\\ant_game_356943\\images\\sugar.png')
+BROKEN = pygame.image.load('E:\\ant_game_356943\\images\\street_broken.jpg')
+STREET = pygame.image.load('E:\\ant_game_356943\\images\\street.jpg')
+ANT_OUT_BOARD = pygame.image.load('E:\\ant_game_356943\\images\\ant_dead.jpeg')
 
 # Colors
 STARTE = (255, 255, 255)

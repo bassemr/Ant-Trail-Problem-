@@ -44,6 +44,7 @@ import numpy as np
 import random
 import sys
 import matplotlib.pyplot as plt
+import os 
 
 # Initialize Pygame
 pygame.init()
@@ -60,8 +61,12 @@ HERE YOU SHOULD TO INSERT THE IAMGES AND AUDIO PATH
 
 """
 #IMAGES AND AUDIO PATH
-PATH_IMAGES = 'E:\\ant_game\\images\\'
-PATH_AUDIO = 'E:\\ant_game\\audio\\'
+# PATH_IMAGES = 'E:\\ant_game\\images\\'
+# PATH_AUDIO = 'E:\\ant_game\\audio\\'
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+PATH_IMAGES = '..\\..\\images\\'
+PATH_AUDIO = '..\\..\\audio\\'
 
 # IMAGES
 ANT_WALKING = pygame.image.load(PATH_IMAGES+'walk.png')
@@ -649,7 +654,7 @@ def start_game() -> int:
     ]
 
     # Load the background image
-    background_image = pygame.image.load('images\\ant3.png')  # Replace with your image file
+    background_image = pygame.image.load(PATH_IMAGES + 'ant3.png')  # Replace with your image file
     background_image = pygame.transform.scale(background_image, (W, H))  # Scale it to fit the screen size
 
     input_box = pygame.Rect(0, H - 60, 200, 40)
@@ -734,7 +739,7 @@ def end_game() -> bool:
     pygame.display.set_caption("End Game Screen")
 
     # Load the background image
-    background_image = pygame.image.load('images\\end_game2.jpg')
+    background_image = pygame.image.load(PATH_IMAGES + 'end_game2.jpg')
     background_image = pygame.transform.scale(background_image, (W, H))
 
     # Set up font
